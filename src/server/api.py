@@ -87,7 +87,6 @@ manager = ConnectionCollection()
 async def rest_endpoint(dongle_id: str, request: JsonRPCRequest):
     return await manager.request(dongle_id, request)
 
-
 @app.websocket("/{dongle_id}")
 async def websocket_endpoint(websocket: WebSocket, dongle_id: str):
     await manager.connect(dongle_id, websocket)
