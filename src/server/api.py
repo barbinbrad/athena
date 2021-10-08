@@ -71,8 +71,7 @@ class ConnectionCollection:
 
     async def receive(self, uid: int, connection: Connection):
         while connection.dongle_id in self.active_connections:
-            try:
-                
+            try:               
                 response = await connection.recv_queue.get()
                 if response[1]['id'] != uid:
                     connection.recv_queue.put_nowait(response)    
