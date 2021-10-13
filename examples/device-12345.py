@@ -199,10 +199,6 @@ def backoff(retries):
 def main():
     ws_uri = ATHENA_HOST
 
-    ws = create_connection(ws_uri,
-                          enable_multithread=True,
-                          timeout=30.0)
-
     while 1:
         try:
             ws = create_connection(ws_uri,
